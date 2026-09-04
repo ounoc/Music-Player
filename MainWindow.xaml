@@ -86,6 +86,7 @@
 
                 <TextBlock x:Name="Canciones_Temporal" 
                        Text="No songs aviable. Select a path"
+                       Background="#33000000"
                        Width="500" 
                        Height="620"
                        MaxHeight="600"

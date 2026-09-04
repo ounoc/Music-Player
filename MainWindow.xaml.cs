@@ -220,30 +220,48 @@ namespace MusicPlayer
 
             //Cuando llega al final del recorrido
 
-            if (songToAdd == fileEntries.Length)
-            { 
-                songToAdd = 0;
-
-                Canciones_Temporal.Text = "";
-
-                for (int i = 0; i < songs.Count; i++) Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songs[i].title;
-
-                return;
-            }
-
-            //Agregando Canciones
-
-            if (songToAdd < fileEntries.Length)
+            switch (auto_Manual)
             {
-                string ext = Path.GetExtension(fileEntries[songToAdd]).ToLower();
-                
-                SongTitle.Text = songName(fileEntries[songToAdd]);
+                case 1: //auto
 
-                currentSong = fileEntries[songToAdd];
+                    Canciones_Temporal.Text = "";
 
-                Alerta_Canciones.Visibility = Visibility.Visible;
+                    for (int i = 0; i < fileEntries.Length; i++)
+                    {
+                        Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songName(fileEntries[i]);
 
-                songToAdd++;
+                        //mas tarde
+                    }
+
+                    break;
+
+                case 2: //manual
+
+                    if (songToAdd == fileEntries.Length)
+                    {
+                        songToAdd = 0;
+
+                        Canciones_Temporal.Text = "";
+
+                        for (int i = 0; i < songs.Count; i++) Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songs[i].title;
+
+                        return;
+                    }
+
+                    //Agregando Canciones
+
+                    if (songToAdd < fileEntries.Length)
+                    {
+                        SongTitle.Text = songName(fileEntries[songToAdd]);
+
+                        currentSong = fileEntries[songToAdd];
+
+                        Alerta_Canciones.Visibility = Visibility.Visible;
+
+                        songToAdd++;
+                    }
+
+                    break;
             }
         }
 

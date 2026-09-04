@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ownoc\\Desktop\\Repos\\MusicPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BEE1CF12-487B-DDF7-9742-204CB85923B4}|MusicPlayer.csproj|c:\\users\\ownoc\\desktop\\repos\\musicplayer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{BEE1CF12-487B-DDF7-9742-204CB85923B4}|MusicPlayer.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BEE1CF12-487B-DDF7-9742-204CB85923B4}|MusicPlayer.csproj|c:\\users\\ownoc\\desktop\\repos\\musicplayer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BEE1CF12-487B-DDF7-9742-204CB85923B4}|MusicPlayer.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BEE1CF12-487B-DDF7-9742-204CB85923B4}|MusicPlayer.csproj|c:\\users\\ownoc\\desktop\\repos\\musicplayer\\scripts\\library.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BEE1CF12-487B-DDF7-9742-204CB85923B4}|MusicPlayer.csproj|solutionrelative:scripts\\library.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BEE1CF12-487B-DDF7-9742-204CB85923B4}|MusicPlayer.csproj|c:\\users\\ownoc\\desktop\\repos\\musicplayer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BEE1CF12-487B-DDF7-9742-204CB85923B4}|MusicPlayer.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +18,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\ownoc\\Desktop\\Repos\\MusicPlayer\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -39,29 +35,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ownoc\\Desktop\\Repos\\MusicPlayer\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\ownoc\\Desktop\\Repos\\MusicPlayer\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAANYAAAAAbhYvFgYTwOYAAABsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-03T17:55:11.221Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Library.cs",
-              "DocumentMoniker": "C:\\Users\\ownoc\\Desktop\\Repos\\MusicPlayer\\Scripts\\Library.cs",
-              "RelativeDocumentMoniker": "Scripts\\Library.cs",
-              "ToolTip": "C:\\Users\\ownoc\\Desktop\\Repos\\MusicPlayer\\Scripts\\Library.cs",
-              "RelativeToolTip": "Scripts\\Library.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-03T14:51:37.766Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
