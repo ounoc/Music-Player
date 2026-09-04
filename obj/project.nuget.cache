@@ -1,16 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "A9MyVZVgkYQ=",
+  "dgSpecHash": "Mr5P3MPb5Vc=",
   "success": true,
   "projectFilePath": "C:\\Users\\ownoc\\Desktop\\Repos\\MusicPlayer\\MusicPlayer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ownoc\\.nuget\\packages\\naudio\\2.3.0\\naudio.2.3.0.nupkg.sha512",
-    "C:\\Users\\ownoc\\.nuget\\packages\\naudio.asio\\2.3.0\\naudio.asio.2.3.0.nupkg.sha512",
-    "C:\\Users\\ownoc\\.nuget\\packages\\naudio.core\\2.3.0\\naudio.core.2.3.0.nupkg.sha512",
-    "C:\\Users\\ownoc\\.nuget\\packages\\naudio.midi\\2.3.0\\naudio.midi.2.3.0.nupkg.sha512",
-    "C:\\Users\\ownoc\\.nuget\\packages\\naudio.wasapi\\2.3.0\\naudio.wasapi.2.3.0.nupkg.sha512",
-    "C:\\Users\\ownoc\\.nuget\\packages\\naudio.winforms\\2.3.0\\naudio.winforms.2.3.0.nupkg.sha512",
-    "C:\\Users\\ownoc\\.nuget\\packages\\naudio.winmm\\2.3.0\\naudio.winmm.2.3.0.nupkg.sha512",
+    "C:\\Users\\ownoc\\.nuget\\packages\\taglibsharp\\2.3.0\\taglibsharp.2.3.0.nupkg.sha512",
     "C:\\Users\\ownoc\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.30\\microsoft.windowsdesktop.app.ref.8.0.30.nupkg.sha512",
     "C:\\Users\\ownoc\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.30\\microsoft.netcore.app.ref.8.0.30.nupkg.sha512",
     "C:\\Users\\ownoc\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.30\\microsoft.aspnetcore.app.ref.8.0.30.nupkg.sha512",

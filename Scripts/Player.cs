@@ -1,7 +1,5 @@
 namespace MusicPlayer;
 
-using NAudio.Wave;
-
 public class Player
 {
     Library lb = new Library();

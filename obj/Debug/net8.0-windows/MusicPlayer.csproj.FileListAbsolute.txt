@@ -31,13 +31,6 @@ C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\MusicPlayer.de
 C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\MusicPlayer.runtimeconfig.json
 C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\MusicPlayer.dll
 C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\MusicPlayer.pdb
-C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\NAudio.dll
-C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\NAudio.Asio.dll
-C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\NAudio.Core.dll
-C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\NAudio.Midi.dll
-C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\NAudio.Wasapi.dll
-C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\NAudio.WinForms.dll
-C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\NAudio.WinMM.dll
 C:\Users\ownoc\Desktop\Repos\MusicPlayer\obj\Debug\net8.0-windows\MusicPlayer.csproj.AssemblyReference.cache
 C:\Users\ownoc\Desktop\Repos\MusicPlayer\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\ownoc\Desktop\Repos\MusicPlayer\obj\Debug\net8.0-windows\MusicPlayer.g.resources
@@ -49,3 +42,4 @@ C:\Users\ownoc\Desktop\Repos\MusicPlayer\obj\Debug\net8.0-windows\MusicPla.16316
 C:\Users\ownoc\Desktop\Repos\MusicPlayer\obj\Debug\net8.0-windows\MusicPlayer.genruntimeconfig.cache
 C:\Users\ownoc\Desktop\Repos\MusicPlayer\obj\Debug\net8.0-windows\ref\MusicPlayer.dll
 C:\Users\ownoc\Desktop\Repos\MusicPlayer\obj\Debug\net8.0-windows\MusicPlayer.sourcelink.json
+C:\Users\ownoc\Desktop\Repos\MusicPlayer\bin\Debug\net8.0-windows\TagLibSharp.dll

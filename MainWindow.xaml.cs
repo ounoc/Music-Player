@@ -1,8 +1,9 @@
 ﻿using Microsoft.Win32;
+using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using TagLib.Mpeg;
 
 namespace MusicPlayer
 {
@@ -12,7 +13,7 @@ namespace MusicPlayer
     public partial class MainWindow : Window
     {
         private int auto_Manual, songToAdd = 0;
-        private string path, currentSong = "";
+        private string path, currentSong, duration = "";
         public bool flag = false;
 
         Library library = new Library();
@@ -30,7 +31,9 @@ namespace MusicPlayer
         *
         */
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        /// Para mover la pestaña
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e) 
         {
             if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
@@ -39,6 +42,8 @@ namespace MusicPlayer
         *
         *
         */
+
+        /// Para minimizar la pestaña
 
         private void Minimize(object sender, RoutedEventArgs e)
         {
@@ -50,6 +55,8 @@ namespace MusicPlayer
         *
         */
 
+        /// Para cerrar la pestaña
+
         private void CloseApp(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -59,6 +66,8 @@ namespace MusicPlayer
         *
         *
         */
+
+        /// Funcion auxiliar para esconder la alerta de agregar cancion con un boton de la interfaz
 
         private void HideAlertBtn(object sender, RoutedEventArgs e)
         {
@@ -70,6 +79,8 @@ namespace MusicPlayer
         *
         */
 
+        /// Funcion originial para esconder la alerta de agregar cancion
+
         private void HideAlert()
         {
             Alerta_Canciones.Visibility = Visibility.Hidden;
@@ -79,6 +90,8 @@ namespace MusicPlayer
         *
         *
         */
+
+        /// Funcion que maneja el agregado de canciones 
 
         private void addSongs(object sender, RoutedEventArgs e)
         {
@@ -94,6 +107,9 @@ namespace MusicPlayer
         *
         */
 
+        /// En caso de no querer agregar la cancion sugerida
+        /// Pasa a la siguiente
+
         private void declineSongs(object sender, RoutedEventArgs e)
         {
             HideAlert();
@@ -105,6 +121,8 @@ namespace MusicPlayer
         *
         *
         */
+
+        /// Abre una ventana para seleccionar un directorio de canciones
 
         private void BtnSeleccionarCarpeta(object sender, RoutedEventArgs e)
         {
@@ -129,6 +147,10 @@ namespace MusicPlayer
         *
         *
         */
+
+        /// Funcion secundaria que maneja el modo en el cual se relodea el directorio (Manual o Automatico)
+        /// El manual te permite elegir una por una las canciones que se quiere agregar.
+        /// El automatico simplemente agrega todos los archivos
 
         private void toggleButtons(object sender, RoutedEventArgs e)
         {
@@ -177,6 +199,8 @@ namespace MusicPlayer
 
         //********************* Funciones Backend *********************//
 
+        /// Agrega las funciones a una lista dinamica 
+
         public void addSong(string title, string album, string artist, string duration)
         {
             Song songToAdd = new Song();
@@ -194,19 +218,25 @@ namespace MusicPlayer
         *
         */
 
+        /// Maneja el agregado de las funciones con el boton YES de la interfaz
+
         private void BtnAddSong()
         {
             //ADD SONGS ALGORITHM
 
             string name = songName(currentSong);
 
-            addSong(name, "unnkown", "unnkown", "unnkown");
+            addSong(name, "unnkown", "unnkown", duration);
         }
 
         /*
         *
         *
         */
+
+        /// No se porque le puse AUX xd
+        /// Pero hace todo el recorrido de como se deberian agregar las canciones dependiendo el modo de agregado que se eligio
+        /// (Manual o automatico)
 
         private void addSongsAUX()
         {
@@ -237,28 +267,37 @@ namespace MusicPlayer
 
                 case 2: //manual
 
+                    /// Cuando termina de procesar todas las canciones manualmente
+                    /// Por ahora solo le agrega el titulo al textbox del medio
+
                     if (songToAdd == fileEntries.Length)
                     {
-                        songToAdd = 0;
+                        songToAdd = 0; // resetea el index de las canciones
 
-                        Canciones_Temporal.Text = "";
+                        Canciones_Temporal.Text = ""; // Borra el texto que dice q no hay canciones
 
-                        for (int i = 0; i < songs.Count; i++) Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songs[i].title;
+                        for (int i = 0; i < songs.Count; i++) Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songs[i].title; // Escribe el texto de las canciones en el texbox
 
                         return;
                     }
 
-                    //Agregando Canciones
+                    /// Aca procesa las canciones agregadas manualmente
+                    /// TabLib.File audio es crea una variable que almacena la cancion que se esta procesando en el momento
+                    /// y por ahora solo lee la duracion
 
                     if (songToAdd < fileEntries.Length)
                     {
-                        SongTitle.Text = songName(fileEntries[songToAdd]);
+                        TagLib.File audio = TagLib.File.Create(fileEntries[songToAdd]); // Aca
 
-                        currentSong = fileEntries[songToAdd];
+                        duration = audio.Properties.Duration.ToString(); // Lee la duracion
 
-                        Alerta_Canciones.Visibility = Visibility.Visible;
+                        SongTitle.Text = songName(fileEntries[songToAdd]); // Aca el titulo
 
-                        songToAdd++;
+                        currentSong = fileEntries[songToAdd]; // Almacena path de la cancion para despues procesarlo y guardar el nombre en una variable
+
+                        Alerta_Canciones.Visibility = Visibility.Visible; // Activa la alerta visual 
+
+                        songToAdd++; // Va a la siguiente cancion
                     }
 
                     break;
@@ -269,6 +308,9 @@ namespace MusicPlayer
         *
         *
         */
+
+        /// Algoritmo simple que toma un path y devuelve el nombre del archivo
+        /// Se encarga de delvolver el nombre de la cancion
 
         public string songName(string song)
         {

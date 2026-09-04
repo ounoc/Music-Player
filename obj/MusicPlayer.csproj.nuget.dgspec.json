@@ -48,7 +48,7 @@
           "framework": "net8.0-windows7.0",
           "targetAlias": "net8.0-windows",
           "dependencies": {
-            "NAudio": {
+            "TagLibSharp": {
               "target": "Package",
               "version": "[2.3.0, )"
             }
