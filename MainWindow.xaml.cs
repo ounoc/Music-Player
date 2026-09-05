@@ -138,7 +138,7 @@ namespace MusicPlayer
 
                 addSongsAUX();
 
-                Canciones_Temporal.TextAlignment = TextAlignment.Left;
+                //Canciones_Temporal.TextAlignment = TextAlignment.Left;
                 Path_Button.Content = "Reload Path";
             }
         }
@@ -254,11 +254,11 @@ namespace MusicPlayer
             {
                 case 1: //auto
 
-                    Canciones_Temporal.Text = "";
+                    //Canciones_Temporal.Text = "";
 
                     for (int i = 0; i < fileEntries.Length; i++)
                     {
-                        Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songName(fileEntries[i]);
+                        //Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songName(fileEntries[i]);
 
                         //mas tarde
                     }
@@ -274,9 +274,14 @@ namespace MusicPlayer
                     {
                         songToAdd = 0; // resetea el index de las canciones
 
-                        Canciones_Temporal.Text = ""; // Borra el texto que dice q no hay canciones
+                        ///Canciones_Temporal.Text = ""; // Borra el texto que dice q no hay canciones
 
-                        for (int i = 0; i < songs.Count; i++) Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songs[i].title; // Escribe el texto de las canciones en el texbox
+                        for (int i = 0; i < songs.Count; i++) // Escribe el texto de las canciones en el texbox
+                        {
+                            ///Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songs[i].title + " -- " + "Duration: " + songs[i].duration;
+
+
+                        } 
 
                         return;
                     }
@@ -287,9 +292,13 @@ namespace MusicPlayer
 
                     if (songToAdd < fileEntries.Length)
                     {
-                        TagLib.File audio = TagLib.File.Create(fileEntries[songToAdd]); // Aca
+                        try
+                        {
+                            TagLib.File audio = TagLib.File.Create(fileEntries[songToAdd]); // Aca
 
-                        duration = audio.Properties.Duration.ToString(); // Lee la duracion
+                            duration = audio.Properties.Duration.ToString(); // Lee la duracion
+                        }
+                        catch (Exception ex) { MessageBox.Show($"No se pudo cargar la cancion: {ex.Message}, Error"); }
 
                         SongTitle.Text = songName(fileEntries[songToAdd]); // Aca el titulo
 
@@ -333,3 +342,15 @@ namespace MusicPlayer
         //********************* Funciones Backend *********************//
     }
 }
+
+// ********************* Como usar el pinche taglib sharp ********************* //
+
+// var tfile = TagLib.File.Create(@"C:\My picture.jpg");
+// string title = tfile.Tag.Title;
+// var tag = tfile.Tag as TagLib.Image.CombinedImageTag;
+// ? snapshot = tag.DateTime;
+// Console.WriteLine("Title: {0}, snapshot taken on {1}", title, snapshot);
+
+//change title in the file
+// .Tag.Title = "my new title";
+// tfile.Save();
