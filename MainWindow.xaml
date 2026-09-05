@@ -83,28 +83,34 @@
                 <!-- Elementos -->
 
                 <Rectangle x:Name="Lugar"
-                    Fill="#33000000"
-                    Width="50" 
-                    Height="650"
-                    Margin="25,0,0,0"/>
+                            Fill="#33000000"
+                            Width="50" 
+                            Height="650"
+                            Margin="25,0,0,0"/>
 
                 <Rectangle  x:Name="Titulo"
-                    Fill="#33000000"
-                    Width="400" 
-                    Height="650"
-                    Margin="25,0,0,0"/>
+                            Fill="#33000000"
+                            Width="400" 
+                            Height="650"
+                            Margin="25,0,0,0"/>
 
                 <Rectangle  x:Name="Album"
-                    Fill="#33000000"
-                    Width="200" 
-                    Height="650"
-                    Margin="25,0,0,0"/>
+                            Fill="#33000000"
+                            Width="200" 
+                            Height="650"
+                            Margin="25,0,0,0"/>
+
+                <Rectangle  x:Name="Artist"
+                            Fill="#33000000"
+                            Width="180" 
+                            Height="650"
+                            Margin="25,0,0,0"/>
 
                 <Rectangle  x:Name="Duracion"
-                    Fill="#33000000"
-                    Width="100" 
-                    Height="650"
-                    Margin="25,0,0,0"/>
+                            Fill="#33000000"
+                            Width="100" 
+                            Height="650"
+                            Margin="25,0,0,0"/>
 
             </StackPanel>
 
@@ -112,20 +118,73 @@
                 Width="1090"
                 Height="650">
 
-                <StackPanel> <!-- ACA ES EL CONTENEDOR DE LAS CANCIONES -->
+                <!-- ESTO SE TIENE QUE PODER REPLICAR MEDIANTE C# -->
 
-                    <Rectangle 
-                        Fill="#33FFFFFF"
-                        Width="855"
-                        Height="50"
-                        VerticalAlignment="Top"
-                        HorizontalAlignment="Left"
-                        Margin="10"/>
+                <StackPanel x:Name="Canciones_Temporal">
+
+                    <!-- <StackPanel
+                            Background="#33FFFFFF"
+                            Orientation="Horizontal"
+                            Width="1060"
+                            Height="50"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Margin="10">
+
+                        <TextBlock x:Name="Song_Number"
+                                Margin="12.5,0,0,0"
+                                Width="55"
+                                Height="20"
+                                Text="1"
+                                FontSize="20"
+                                TextAlignment="Center"
+                                Foreground="White"
+                                FontFamily="Nanitos"/>
+
+                        <TextBlock  x:Name="Song_Title"
+                                Margin="30,0,0,-10"
+                                Width="385"
+                                Height="30"
+                                Text="Title Example"
+                                FontSize="20"
+                                TextAlignment="Left"
+                                Foreground="White"
+                                FontFamily="Nanitos"/>
+
+                        <TextBlock  x:Name="Song_Album"
+                                Margin="40,0,0,-10"
+                                Width="185"
+                                Height="30"
+                                Text="Album Example"
+                                FontSize="20"
+                                TextAlignment="Left"
+                                Foreground="White"
+                                FontFamily="Nanitos"/>
+
+                        <TextBlock  x:Name="Song_Artist"
+                                Margin="40,0,0,-10"
+                                Width="165"
+                                Height="30"
+                                Text="Artist Example"
+                                FontSize="20"
+                                TextAlignment="Left"
+                                Foreground="White"
+                                FontFamily="Nanitos"/>
+
+                        <TextBlock  x:Name="Song_Duration"
+                                Margin="40,0,0,-10"
+                                Width="85"
+                                Height="30"
+                                Text="00:00:00"
+                                FontSize="20"
+                                TextAlignment="Center"
+                                Foreground="White"
+                                FontFamily="Nanitos"/>
+
+                    </StackPanel> -->
 
                 </StackPanel>
-                
-                
-                
+              
             </ScrollViewer>
 
         </Grid>

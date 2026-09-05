@@ -2,7 +2,10 @@
 using System.ComponentModel;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Xml;
 using TagLib.Mpeg;
 
 namespace MusicPlayer
@@ -33,7 +36,7 @@ namespace MusicPlayer
 
         /// Para mover la pestaña
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e) 
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) DragMove();
         }
@@ -260,7 +263,13 @@ namespace MusicPlayer
                     {
                         //Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songName(fileEntries[i]);
 
-                        //mas tarde
+                        SongTitle.Text = songName(fileEntries[i]); // Aca el titulo
+
+                        currentSong = fileEntries[i]; // Almacena path de la cancion para despues procesarlo y guardar el nombre en una variable
+
+                        BtnAddSong();
+
+                        addVisualSongs(songs[i].title, songs[i].album, songs[i].artist, songs[i].duration, i + 1);
                     }
 
                     break;
@@ -280,8 +289,8 @@ namespace MusicPlayer
                         {
                             ///Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songs[i].title + " -- " + "Duration: " + songs[i].duration;
 
-
-                        } 
+                            addVisualSongs(songs[i].title, songs[i].album, songs[i].artist, songs[i].duration, i + 1);
+                        }
 
                         return;
                     }
@@ -337,6 +346,105 @@ namespace MusicPlayer
             flag = false;
 
             return songNameDef;
+        }
+
+        /*
+        *
+        *
+        */
+
+        /// Funcion para crear o asignar visualmente las canciones a la pantalla principal
+        /// nada eso
+
+        private void addVisualSongs(string name, string album, string artist, string duration, int id)
+        {
+            var converter = new BrushConverter();
+            var font = new FontFamily("Nanitos");
+
+            StackPanel cancion = new StackPanel
+            {
+                Background = (Brush)converter.ConvertFromString("#33FFFFFF"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top,
+                Orientation = Orientation.Horizontal,
+                Margin = new Thickness(10),
+                //Name = id.ToString(), //Aca hacer algo para poner el nombre de la cancion :v
+                Width = 1060,
+                Height = 50
+            };
+
+            TextBlock cancion_Numero = new TextBlock
+            {
+                Foreground = (Brush)converter.ConvertFromString("White"),
+                Margin = new Thickness(12.5, 0, 0, 0),
+                TextAlignment = TextAlignment.Center,
+                FontFamily = FontFamily,
+                //cancion_Numero.Name = id.ToString();
+                FontSize = 20,
+                Height = 30,
+                Width = 55,
+                Text = id.ToString()
+            };
+
+            TextBlock cancion_Title = new TextBlock
+            {
+                Foreground = (Brush)converter.ConvertFromString("White"),
+                Margin = new Thickness(30, 0, 0, -10),
+                TextAlignment = TextAlignment.Left,
+                FontFamily = FontFamily,
+                //Name = id.ToString();
+                FontSize = 20,
+                Height = 30,
+                Width = 385,
+                Text = name
+            };
+
+            TextBlock cancion_Album = new TextBlock
+            {
+                Foreground = (Brush)converter.ConvertFromString("White"),
+                Margin = new Thickness(40, 0, 0, -10),
+                TextAlignment = TextAlignment.Left,
+                FontFamily = FontFamily,
+                //Name = id.ToString();
+                FontSize = 20,
+                Height = 30,
+                Width = 185,
+                Text = "album " + id
+            };
+
+            TextBlock cancion_Artist = new TextBlock
+            {
+                Foreground = (Brush)converter.ConvertFromString("White"),
+                Margin = new Thickness(40, 0, 0, -10),
+                TextAlignment = TextAlignment.Left,
+                FontFamily = FontFamily,
+                //Name = id.ToString();
+                FontSize = 20,
+                Height = 30,
+                Width = 165,
+                Text = "artist" + id
+            };
+
+            TextBlock cancion_Duration = new TextBlock
+            {
+                Foreground = (Brush)converter.ConvertFromString("White"),
+                Margin = new Thickness(40, 0, 0, -10),
+                TextAlignment = TextAlignment.Center,
+                FontFamily = FontFamily,
+                // Name = id.ToString();
+                FontSize = 20,
+                Height = 30,
+                Width = 85,
+                Text = "Duration" + id
+            };
+
+            cancion.Children.Add(cancion_Numero);
+            cancion.Children.Add(cancion_Title);
+            cancion.Children.Add(cancion_Album);
+            cancion.Children.Add(cancion_Artist);
+            cancion.Children.Add(cancion_Duration);
+
+            Canciones_Temporal.Children.Add(cancion);
         }
 
         //********************* Funciones Backend *********************//
