@@ -1,12 +1,9 @@
 ﻿using Microsoft.Win32;
-using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Xml;
-using TagLib.Mpeg;
 
 namespace MusicPlayer
 {
@@ -18,8 +15,6 @@ namespace MusicPlayer
         private int auto_Manual, songToAdd = 0;
         private string path, currentSong, duration = "";
         public bool flag = false;
-
-        Library library = new Library();
 
         private List<Song> songs = new List<Song>();
 
@@ -124,6 +119,11 @@ namespace MusicPlayer
         *
         *
         */
+
+        private void a()
+        {
+        
+        }
 
         /// Abre una ventana para seleccionar un directorio de canciones
 
@@ -261,11 +261,15 @@ namespace MusicPlayer
 
                     for (int i = 0; i < fileEntries.Length; i++)
                     {
-                        //Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songName(fileEntries[i]);
-
                         SongTitle.Text = songName(fileEntries[i]); // Aca el titulo
 
                         currentSong = fileEntries[i]; // Almacena path de la cancion para despues procesarlo y guardar el nombre en una variable
+
+                        TagLib.File audio = TagLib.File.Create(fileEntries[i]); // Aca
+
+                        TimeSpan dur = audio.Properties.Duration;
+                        int totalMinutes = (int)dur.TotalMinutes;
+                        duration = $"{totalMinutes:D2}:{dur.Seconds:D2}";
 
                         BtnAddSong();
 
@@ -283,12 +287,8 @@ namespace MusicPlayer
                     {
                         songToAdd = 0; // resetea el index de las canciones
 
-                        ///Canciones_Temporal.Text = ""; // Borra el texto que dice q no hay canciones
-
                         for (int i = 0; i < songs.Count; i++) // Escribe el texto de las canciones en el texbox
                         {
-                            ///Canciones_Temporal.Text = Canciones_Temporal.Text + "\n" + songs[i].title + " -- " + "Duration: " + songs[i].duration;
-
                             addVisualSongs(songs[i].title, songs[i].album, songs[i].artist, songs[i].duration, i + 1);
                         }
 
@@ -305,9 +305,13 @@ namespace MusicPlayer
                         {
                             TagLib.File audio = TagLib.File.Create(fileEntries[songToAdd]); // Aca
 
-                            duration = audio.Properties.Duration.ToString(); // Lee la duracion
+                            TimeSpan dur = audio.Properties.Duration;
+
+                            int totalMinutes = (int)dur.TotalMinutes;
+
+                            duration = $"{totalMinutes:D2}:{dur.Seconds:D2}";
                         }
-                        catch (Exception ex) { MessageBox.Show($"No se pudo cargar la cancion: {ex.Message}, Error"); }
+                        catch (Exception ex) { MessageBox.Show($"{ex.Message}, Error"); }
 
                         SongTitle.Text = songName(fileEntries[songToAdd]); // Aca el titulo
 
@@ -368,7 +372,6 @@ namespace MusicPlayer
                 VerticalAlignment = VerticalAlignment.Top,
                 Orientation = Orientation.Horizontal,
                 Margin = new Thickness(10),
-                //Name = id.ToString(), //Aca hacer algo para poner el nombre de la cancion :v
                 Width = 1060,
                 Height = 50
             };
@@ -379,7 +382,6 @@ namespace MusicPlayer
                 Margin = new Thickness(12.5, 0, 0, 0),
                 TextAlignment = TextAlignment.Center,
                 FontFamily = FontFamily,
-                //cancion_Numero.Name = id.ToString();
                 FontSize = 20,
                 Height = 30,
                 Width = 55,
@@ -392,7 +394,6 @@ namespace MusicPlayer
                 Margin = new Thickness(30, 0, 0, -10),
                 TextAlignment = TextAlignment.Left,
                 FontFamily = FontFamily,
-                //Name = id.ToString();
                 FontSize = 20,
                 Height = 30,
                 Width = 385,
@@ -405,7 +406,6 @@ namespace MusicPlayer
                 Margin = new Thickness(40, 0, 0, -10),
                 TextAlignment = TextAlignment.Left,
                 FontFamily = FontFamily,
-                //Name = id.ToString();
                 FontSize = 20,
                 Height = 30,
                 Width = 185,
@@ -418,7 +418,6 @@ namespace MusicPlayer
                 Margin = new Thickness(40, 0, 0, -10),
                 TextAlignment = TextAlignment.Left,
                 FontFamily = FontFamily,
-                //Name = id.ToString();
                 FontSize = 20,
                 Height = 30,
                 Width = 165,
@@ -431,11 +430,10 @@ namespace MusicPlayer
                 Margin = new Thickness(40, 0, 0, -10),
                 TextAlignment = TextAlignment.Center,
                 FontFamily = FontFamily,
-                // Name = id.ToString();
                 FontSize = 20,
                 Height = 30,
                 Width = 85,
-                Text = "Duration" + id
+                Text = duration 
             };
 
             cancion.Children.Add(cancion_Numero);

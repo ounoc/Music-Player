@@ -72,47 +72,51 @@
 
         <!-- Panel Central -->
 
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid HorizontalAlignment="Center" 
+              VerticalAlignment="Center">
 
-            <StackPanel
-                Orientation="Horizontal"
-                Width="1090"
-                Height="700"
-                Background="#7F020308">
+            <Border Background="#7F020308">
 
-                <!-- Elementos -->
+                <!-- Layout visual de una playlist o album -->
 
-                <Rectangle x:Name="Lugar"
-                            Fill="#33000000"
-                            Width="50" 
-                            Height="650"
-                            Margin="25,0,0,0"/>
+                <StackPanel
+                    Width="1090"
+                    Height="700"
+                    Orientation="Horizontal">
 
-                <Rectangle  x:Name="Titulo"
-                            Fill="#33000000"
-                            Width="400" 
-                            Height="650"
-                            Margin="25,0,0,0"/>
+                    <Rectangle  x:Name="Lugar"
+                                Fill="#33000000"
+                                Width="50" 
+                                Height="650"
+                                Margin="25,0,0,0"/>
 
-                <Rectangle  x:Name="Album"
-                            Fill="#33000000"
-                            Width="200" 
-                            Height="650"
-                            Margin="25,0,0,0"/>
+                    <Rectangle  x:Name="Titulo"
+                                Fill="#33000000"
+                                Width="400" 
+                                Height="650"
+                                Margin="25,0,0,0"/>
 
-                <Rectangle  x:Name="Artist"
-                            Fill="#33000000"
-                            Width="180" 
-                            Height="650"
-                            Margin="25,0,0,0"/>
+                    <Rectangle  x:Name="Album"
+                                Fill="#33000000"
+                                Width="200" 
+                                Height="650"
+                                Margin="25,0,0,0"/>
 
-                <Rectangle  x:Name="Duracion"
-                            Fill="#33000000"
-                            Width="100" 
-                            Height="650"
-                            Margin="25,0,0,0"/>
+                    <Rectangle  x:Name="Artist"
+                                Fill="#33000000"
+                                Width="180" 
+                                Height="650"
+                                Margin="25,0,0,0"/>
 
-            </StackPanel>
+                    <Rectangle  x:Name="Duracion"
+                                Fill="#33000000"
+                                Width="100" 
+                                Height="650"
+                                Margin="25,0,0,0"/> 
+
+                </StackPanel>
+
+            </Border>
 
             <ScrollViewer 
                 Width="1090"
@@ -254,26 +258,37 @@
  
         </StackPanel>
 
-        <!-- Agregar Canciones -->
-
         <Border x:Name="Alerta_Canciones"
-        Width="1200"
-        Height="870"
-        VerticalAlignment="Bottom"
-        Background="#B2000000"
-        Visibility="Hidden">
+                VerticalAlignment="Bottom"
+                Background="#B2000000"
+                Visibility="Visible"
+                Width="1600"
+                Height="870">
 
             <Grid>
 
                 <Rectangle Fill="#80000000"
-                    Width="1200"
+                    Width="1600"
                     Height="870"
                     MouseDown="HideAlertBtn"/>
+
+                <!-- Opciones -->
+
+                <StackPanel>
+                    
+                    
+                    
+                </StackPanel>
+                
+                <!-- Opciones -->
+
+                <!-- Agregar Canciones -->
 
                 <StackPanel
                     Background="#990F1A24"
                     Width="400"
-                    Height="500">
+                    Height="500"
+                    Visibility="Hidden">
 
                     <TextBlock Text="Want to add:"
                                Foreground="White" 
@@ -307,6 +322,8 @@
                     </StackPanel>
 
                 </StackPanel>
+
+                <!-- Agregar Canciones -->
 
             </Grid>
 
